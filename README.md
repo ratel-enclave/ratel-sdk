@@ -34,8 +34,8 @@ Build the Intel(R) SGX SDK Package
 -------------------------------------------------------
 ### Prerequisites:
 - Ensure that you have one of the following required operating systems:  
-  * Ubuntu\* 16.04.3 LTS Desktop 64bits
-  * Ubuntu\* 16.04.3 LTS Server 64bits
+  * Ubuntu\* 16.04.1 LTS Desktop 64bits
+  * Ubuntu\* 16.04.1 LTS Server 64bits
   * Red Hat Enterprise Linux Server release 7.4 64bits
   * CentOS 7.4.1708 64bits
   * SUSE Linux Enterprise Server 12 64bits

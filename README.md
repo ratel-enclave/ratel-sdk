@@ -70,13 +70,6 @@ The following steps describe how to build the Intel(R) SGX SDK. You can build th
   You can find the tools and libraries generated in the `build/linux` directory.  
   **Note**: You can also go to the `sdk` folder and use the `make` command to build the Intel(R) SGX SDK component only. However, building the PSW component is dependent on the result of building the Intel(R) SGX SDK.  
 
-- This repository supports to build the Intel(R) SGX SDK based on either precompiled optimized IPP/string/math libraries or open sourced version of SGXSSL/string/math libraries. 
-  The default build uses precompiled optimized libraries, which are downloaded by the script ``./download_prebuilt.sh``.
-  You can also use the open sourced version implementation instead by entering the following command:
-```
-  $ make USE_OPT_LIBS=0
-```
-  **Note**: Building the Intel(R) SGX PSW with open sourced SGXSSL/string/math libraries is not supported. The above command builds Intel(R) SGX SDK only and the build of PSW part will be skipped.
 
 - To build Intel(R) SGX SDK with debug information, enter the following command:  
 ```
@@ -86,13 +79,6 @@ The following steps describe how to build the Intel(R) SGX SDK. You can build th
 ```
   $ make clean
 ```
-
-- The build above uses prebuilt Intel(R) Architecture Enclaves(LE/PvE/QE/PCE/PSE-OP/PSE-PR) and applet(PSDA) - the files ``psw/ae/data/prebuilt/libsgx_*.signed.so`` and ``psw/ae/data/prebuilt/PSDA.dalp``, which have been signed by Intel in advance.
-  To build those enclaves by yourself (without a signature), first you need to build both Intel(R) SGX SDK with the default configuration. After that, you can build each Architecture Enclave by using the `make` command from the corresponding folder:
-```
-  $ cd psw/ae/le
-  $ make
-``` 
 
 ### Build the Intel(R) SGX SDK Installer
 To build the Intel(R) SGX SDK installer, enter the following command:
@@ -142,38 +128,3 @@ NOTE: You need to set up the needed environment variables before compiling your 
 ```  
   $ source ${sgx-sdk-install-path}/environment  
 ```  
-
-### Test the Intel(R) SGX SDK Package with the Code Samples
-- Compile and run each code sample in Simulation mode to make sure the package works well:    
-```
-  $ cd SampleCode/LocalAttestation
-  $ make SGX_MODE=SIM
-  $ ./app
-```
-   Use similar commands for other sample codes.
-
-### Compile and Run the Code Samples in the Hardware Mode
-If you use an Intel SGX hardware enabled machine, you can run the code samples in Hardware mode.
-Ensure that you install Intel(R) SGX driver and Intel(R) SGX PSW installer on the machine.  
-See the earlier topic, *Build and Install the Intel(R) SGX Driver*, for information on how to install the Intel(R) SGX driver.  
-See the later topic, *Install Intel(R) SGX PSW*, for information on how to install the PSW package.
-- Compile and run each code sample in Hardware mode, Debug build, as follows:  
-```
-  $ cd SampleCode/LocalAttestation
-  $ make
-  $ ./app
-```
-   Use similar commands for other code samples.
-
-
-### Start or Stop aesmd Service
-The Intel(R) SGX PSW installer installs an aesmd service in your machine, which is running in a special linux account `aesmd`.  
-To stop the service: `$ sudo service aesmd stop`  
-To start the service: `$ sudo service aesmd start`  
-To restart the service: `$ sudo service aesmd restart`
-
-### Configure the Proxy for aesmd Service
-The aesmd service uses the HTTP protocol to initialize some services.  
-If a proxy is required for the HTTP protocol, you may need to manually set up the proxy for the aesmd service.  
-You should manually edit the file `/etc/aesmd.conf` (refer to the comments in the file) to set the proxy for the aesmd service.  
-After you configure the proxy, you need to restart the service to enable the proxy.

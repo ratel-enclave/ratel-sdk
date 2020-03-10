@@ -11,8 +11,6 @@ The Linux\* Intel(R) SGX software stack is comprised of the Intel(R) SGX driver,
 
 The [linux-sgx-driver](https://github.com/01org/linux-sgx-driver) project hosts the out-of-tree driver for the Linux\* Intel(R) SGX software stack, which will be used until the driver upstreaming process is complete. 
 
-The repository provides a reference implementation of a Launch Enclave for 'Flexible Launch Control' under [psw/ae/ref_le](psw/ae/ref_le). The reference LE implemenation can be used as a basis for enforcing different launch control policy by the platform developer or owner. To build and try it by yourself, please refer to the [ref_le.md](psw/ae/ref_le/ref_le.md) for details.
-
 License
 -------
 See [License.txt](License.txt) for details.
@@ -36,24 +34,11 @@ Build the Intel(R) SGX SDK Package
 - Ensure that you have one of the following required operating systems:  
   * Ubuntu\* 16.04.1 LTS Desktop 64bits
   * Ubuntu\* 16.04.1 LTS Server 64bits
-  * Red Hat Enterprise Linux Server release 7.4 64bits
-  * CentOS 7.4.1708 64bits
-  * SUSE Linux Enterprise Server 12 64bits
-
+  
 - Use the following command(s) to install the required tools to build the Intel(R) SGX SDK:  
   * On Ubuntu 16.04:
   ```
     $ sudo apt-get install build-essential ocaml automake autoconf libtool wget python
-  ```
-  * On Red Hat Enterprise Linux 7.4 and CentOS 7.4:
-  ```
-    $ sudo yum groupinstall 'Development Tools'
-    $ sudo yum install ocaml wget python
-  ```
-  * On SUSE Linux Enterprise Server 12:
-  ```
-    $ sudo zypper install --type pattern devel_basis
-    $ sudo zypper install ocaml ocaml-ocamlbuild automake autoconf libtool wget python
   ```
 - Use the script ``download_prebuilt.sh`` inside source code package to download prebuilt binaries to prebuilt folder  
   You may need set an https proxy for the `wget` tool used by the script (such as ``export https_proxy=http://test-proxy:test-port``)  
@@ -97,27 +82,13 @@ Install the Intel(R) SGX SDK
 ------------------------
 ### Prerequisites
 - Ensure that you have one of the following operating systems:  
-  * Ubuntu\* 16.04.3 LTS Desktop 64bits
-  * Ubuntu\* 16.04.3 LTS Server 64bits
-  * Red Hat Enterprise Linux Server release 7.4 64bits
-  * CentOS 7.4.1708 64bits
-  * SUSE Linux Enterprise Server 12 64bits
+  * Ubuntu\* 16.04.1 LTS Desktop 64bits
+  * Ubuntu\* 16.04.1 LTS Server 64bits
 - Use the following command to install the required tool to use Intel(R) SGX SDK:
   * On Ubuntu 16.04:
   ```  
     $ sudo apt-get install build-essential python
   ```
-  * On Red Hat Enterprise Linux 7.4 and CentOS 7.4:
-  ```
-     $ sudo yum groupinstall 'Development Tools'
-     $ sudo yum install python 
-  ```
-  * On SUSE Linux Enterprise Server 12:
-  ```
-     $ sudo zypper install --type pattern devel_basis
-     $ sudo zypper install python 
-  ```
-
 ### Install the Intel(R) SGX SDK
 To install the Intel(R) SGX SDK, invoke the installer, as follows:
 ```

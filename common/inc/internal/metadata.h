@@ -67,7 +67,7 @@
 #define MAX_SAVE_BUF_SIZE 2632
 
 #define TCS_NUM_MIN 1
-#define SSA_NUM_MIN 2
+#define SSA_NUM_MIN 3       /* Extended to 3 for handling nested exceptions */
 #define SSA_FRAME_SIZE_MIN 1
 #define SSA_FRAME_SIZE_MAX 2
 #define STACK_SIZE_MIN 0x1000

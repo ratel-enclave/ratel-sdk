@@ -215,7 +215,7 @@ int enter_enclave(int index, void *ms, void *tcs, int cssa)
         }
 		/* End: Added by ratel authors */
     }
-    else if((cssa == 1) && (index == ECMD_EXCEPT))
+    else if((cssa >= 1) && (index == ECMD_EXCEPT))  /* Allow entering to handle multiple exceptions */
     {
         error = trts_handle_exception(tcs, ms);
         if (check_static_stack_canary(tcs) != 0)

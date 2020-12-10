@@ -382,8 +382,8 @@ trts_handle_exception(void *tcs, void *ms)
     ssa_gpr = reinterpret_cast<ssa_gpr_t *>(thread_data->first_ssa_gpr);
 
     sp = ssa_gpr->REG(sp);
-    if(!is_stack_addr((void*)sp, 0))  // check stack overrun only, alignment will be checked after exception handled
-    {
+    if(!is_stack_addr((void*)sp, 0) && !sgx_is_within_enclave((void*)sp, 0))  // check stack overrun only, alignment will be checked after exception handled
+    {   /*cdd: sp address may come from interrupted runtime memory region, so should avoid falling into here */
         assert(false && "trts_handle_exception -->> SGX_ERROR_STACK_OVERRUN!!!");
         g_enclave_state = ENCLAVE_CRASHED;
         return SGX_ERROR_STACK_OVERRUN;

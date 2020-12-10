@@ -43,7 +43,9 @@
 #define STRCMP strcmp
 #define STRNCMP strncmp
 
-#define SSA_NUM        2
+/* Here extend the number of SSA to allow handling two extra nested exceptions triggered
+from inside except the one for timer interrupt. (can be extended to more for sure) */
+#define SSA_NUM        3
 #define SSA_FRAME_SIZE 1
 
 typedef enum _para_type_t

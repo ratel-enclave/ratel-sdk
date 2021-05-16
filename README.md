@@ -38,7 +38,7 @@ Build the Intel(R) SGX SDK Package
 - Use the following command(s) to install the required tools to build the Intel(R) SGX SDK:  
   * On Ubuntu 16.04:
   ```
-    $ sudo apt-get install build-essential ocaml automake autoconf libtool wget python
+    $ sudo apt-get install libssl-dev build-essential ocaml automake autoconf libtool wget python
   ```
 - Use the script ``download_prebuilt.sh`` inside source code package to download prebuilt binaries to prebuilt folder  
   You may need set an https proxy for the `wget` tool used by the script (such as ``export https_proxy=http://test-proxy:test-port``)  
